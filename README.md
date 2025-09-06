@@ -1,5 +1,6 @@
 # SynergySphere-LegalFrame-Team-SynergyBytes
 Yt link:https://youtu.be/yLXqBw5iKVY
+
 LegalFrame is a smart, cross-platform collaboration tool designed for legal teams. Manage cases, assign tasks, collaborate in real-time, share documents all in one streamlined workspace.
 
 📚 LegalFrame
