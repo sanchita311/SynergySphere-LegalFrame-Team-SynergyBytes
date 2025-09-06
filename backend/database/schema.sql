@@ -17,6 +17,7 @@ CREATE TABLE cases (
     title VARCHAR(255) NOT NULL,
     description TEXT,
     status ENUM('Active','Closed','Archived') DEFAULT 'Active',
+    due_date DATE,
     created_by CHAR(36),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -27,11 +28,11 @@ CREATE TABLE cases (
 CREATE TABLE case_members (
     case_id CHAR(36),
     user_id CHAR(36),
-    role_in_case VARCHAR(100),
+    role_in_case ENUM('Lead','Associate','Paralegal','Client','Observer') DEFAULT 'Associate',
     joined_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (case_id, user_id),
-    FOREIGN KEY (case_id) REFERENCES cases(case_id),
-    FOREIGN KEY (user_id) REFERENCES users(user_id)
+    FOREIGN KEY (case_id) REFERENCES cases(case_id) ON DELETE CASCADE,
+    FOREIGN KEY (user_id) REFERENCES users(user_id) ON DELETE CASCADE
 );
 
 -- Tasks table

@@ -3,16 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= title %></title>
+    <title><%= title %> - LegalFrame</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #3b0a45, #a1027e);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .navbar {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .navbar-nav {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+        }
+
+        .navbar-nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar-nav a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .main-container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .welcome-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .welcome-card h1 {
+            color: #4a004d;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+
+        .welcome-card p {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+
+        .role-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #6a0572, #9d0191);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .action-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .action-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .action-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .action-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .action-card i {
+            font-size: 3em;
+            color: #6a0572;
+            margin-bottom: 20px;
+        }
+
+        .main-management {
+            border-left: 5px solid #6a0572;
+        }
+
+        .ai-card {
+            border-left: 5px solid #ff6b35;
+        }
+
+        .ai-card i {
+            color: #ff6b35;
+        }
+
+        .feature-list, .ai-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .feature-item, .ai-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(106, 5, 114, 0.1);
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .ai-feature {
+            background: rgba(255, 107, 53, 0.1);
+        }
+
+        .feature-item i, .ai-feature i {
+            font-size: 1em;
+            margin: 0;
+        }
+
+        .feature-item i {
+            color: #6a0572;
+        }
+
+        .ai-feature i {
+            color: #ff6b35;
+        }
+
+        .action-card h3 {
+            color: #4a004d;
+            margin-bottom: 15px;
+        }
+
+        .action-card p {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #6a0572, #9d0191);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            color: white;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #6a0572;
+            color: #6a0572;
+        }
+
+        .btn-outline:hover {
+            background: #6a0572;
+            color: white;
+        }
+
+        .login-prompt {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .login-prompt h1 {
+            color: #4a004d;
+            margin-bottom: 20px;
+        }
+
+        .login-prompt p {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+    </style>
 </head>
 <body>
-    <h1><%= title %></h1>
-    <% if (user) { %>
-        <p>You are logged in as <%= user.email %>.</p>
-        <p>Your role is <%= user.role %>.</p>
-        <a href="/auth/logout">Logout</a>
-    <% } else { %>
-        <p>You are not logged in. <a href="/auth/login">Login here</a></p>
-    <% } %>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">LegalFrame</a>
+            <% if (user) { %>
+                <ul class="navbar-nav">
+                    <li><a href="/cases"><i class="fas fa-briefcase"></i> Cases</a></li>
+                    <li><a href="/auth/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+                </ul>
+            <% } else { %>
+                <ul class="navbar-nav">
+                    <li><a href="/auth/login"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                    <li><a href="/auth/signup"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                </ul>
+            <% } %>
+        </div>
+    </nav>
+
+    <div class="main-container">
+        <% if (user) { %>
+            <div class="welcome-card">
+                <h1><i class="fas fa-gavel"></i> Welcome to LegalFrame</h1>
+                <p>You are logged in as <strong><%= user.email %></strong></p>
+                <div class="role-badge">
+                    <i class="fas fa-user-tag"></i> <%= user.role %>
+                </div>
+                <p>Manage your legal cases, collaborate with your team, and track tasks efficiently.</p>
+            </div>
+
+            <div class="action-cards">
+                <div class="action-card main-management">
+                    <i class="fas fa-gavel"></i>
+                    <h3>Legal Case Management</h3>
+                    <p>Comprehensive legal case management system with team collaboration, task tracking, and document management. Manage cases, assign team members, track tasks, and collaborate effectively.</p>
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Case Management</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-users"></i>
+                            <span>Team Collaboration</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-tasks"></i>
+                            <span>Task Management</span>
+                        </div>
+                    </div>
+                    <a href="/cases" class="btn">Go to Management Dashboard</a>
+                </div>
+
+                <div class="action-card ai-card">
+                    <i class="fas fa-robot"></i>
+                    <h3>AI Legal Clause Recommender</h3>
+                    <p>Get intelligent legal clause recommendations based on your case description. Our AI analyzes your case details and suggests relevant constitutional clauses and legal provisions.</p>
+                    <div class="ai-features">
+                        <div class="ai-feature">
+                            <i class="fas fa-brain"></i>
+                            <span>Smart Analysis</span>
+                        </div>
+                        <div class="ai-feature">
+                            <i class="fas fa-book"></i>
+                            <span>Constitutional Clauses</span>
+                        </div>
+                        <div class="ai-feature">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Legal Advice</span>
+                        </div>
+                    </div>
+                    <a href="/ai-clause-recommender" class="btn btn-outline">Try AI Recommender</a>
+                </div>
+            </div>
+        <% } else { %>
+            <div class="login-prompt">
+                <h1><i class="fas fa-gavel"></i> Welcome to LegalFrame</h1>
+                <p>Your comprehensive legal case management system. Please log in to access your dashboard.</p>
+                <a href="/auth/login" class="btn">Login</a>
+                <a href="/auth/signup" class="btn btn-outline">Sign Up</a>
+            </div>
+        <% } %>
+    </div>
 </body>
 </html>
