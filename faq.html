@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - Management System</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to your global theme -->
+  <style>
+    body {
+      font-family: "Segoe UI", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f7f2fc;
+      color: #333;
+    }
+    header {
+      background: #5a2d82;
+      color: #fff;
+      padding: 15px 30px;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .navbar .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+    .nav-links li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav-links li a.active,
+    .nav-links li a:hover {
+      text-decoration: underline;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+    }
+    .faq-section h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 32px;
+      color: #4a1f63;
+    }
+    .faq-item {
+      background: white;
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .faq-item:hover {
+      transform: translateY(-3px);
+    }
+    .faq-question {
+      font-weight: bold;
+      font-size: 16px;
+      color: #5a2d82;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+      margin-top: 10px;
+      color: #444;
+      line-height: 1.6;
+    }
+    .faq-item.active .faq-answer {
+      max-height: 200px; /* enough space for answer */
+      opacity: 1;
+    }
+
+    /* Footer */
+    footer {
+      background: #5a2d82;
+      color: #fff;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .faq-section {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav class="navbar">
+      <div class="logo">Our Management System</div>
+      <ul class="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about_us.html">About Us</a></li>
+        <li><a href="faq.html" class="active">FAQ</a></li>
+        <li><a href="contact_us.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Q1. What is this Management System about? <span>➕</span>
+      </div>
+      <div class="faq-answer">
+        It’s a platform to simplify project tracking, team collaboration, 
+        and record management with a user-friendly dashboard.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Q2. How do I create an account? <span>➕</span>
+      </div>
+      <div class="faq-answer">
+        Click on the Sign Up button, fill in your details, and verify your email. 
+        Once done, you can log in to your account.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Q3. Is my data secure? <span>➕</span>
+      </div>
+      <div class="faq-answer">
+        Yes. We use encryption, authentication, and secure servers to protect your data.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Q4. Can I add multiple team members? <span>➕</span>
+      </div>
+      <div class="faq-answer">
+        Absolutely. The system allows you to add, manage, and collaborate with multiple team members.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Q5. Do I need technical knowledge to use it? <span>➕</span>
+      </div>
+      <div class="faq-answer">
+        No, the system is designed to be simple and intuitive, so anyone can use it.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">
+        Q6. Can this system be customized? <span>➕</span>
+      </div>
+      <div class="faq-answer">
+        Yes, features can be adapted based on your organization’s needs.
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Our Management System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Toggle FAQ answers with animation + symbol change
+    document.querySelectorAll(".faq-item").forEach(item => {
+      item.addEventListener("click", () => {
+        item.classList.toggle("active");
+        const symbol = item.querySelector("span");
+        symbol.textContent = item.classList.contains("active") ? "➖" : "➕";
+      });
+    });
+  </script>
+</body>
+</html>
