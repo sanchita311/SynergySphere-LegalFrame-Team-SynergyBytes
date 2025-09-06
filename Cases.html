@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LegalFrame – Project Manager</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #2e0249, #570a57, #a91079); 
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .container {
+      background: #fff;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      width: 90%;
+      max-width: 800px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      color: #570a57;
+    }
+
+    h2 {
+      color: #570a57;
+      margin-bottom: 10px;
+    }
+
+    .btn {
+      background: #570a57;
+      color: #fff;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      margin-top: 10px;
+    }
+
+    .btn:hover {
+      background: #a91079;
+      transform: scale(1.05);
+    }
+
+    .card {
+      background: #fff;
+      margin: 10px 0;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .screen {
+      display: none;
+    }
+    .active {
+      display: block;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      width: 350px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+      animation: slideIn 0.4s ease;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+      color: #570a57;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      border-color: #a91079;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.95);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    @keyframes slideIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Cases</h1>
+    </header>
+
+    <!-- Dashboard Screen -->
+    <div id="dashboard" class="screen active">
+      <h2>Projects</h2>
+      <div id="project-list"></div>
+      <button class="btn" onclick="showProjectForm()">+ New Project</button>
+    </div>
+
+    <!-- Project Detail Screen -->
+    <div id="project-detail" class="screen">
+      <button class="btn" onclick="goBack()">← Back</button>
+      <h2 id="project-title"></h2>
+      <div id="task-list"></div>
+      <button class="btn" onclick="showTaskModal()">+ New Task</button>
+    </div>
+
+    <!-- Task Detail Screen -->
+    <div id="task-detail" class="screen">
+      <button class="btn" onclick="backToProject()">← Back</button>
+      <h2 id="task-title"></h2>
+      <p id="task-desc"></p>
+      <p><b>Assignee:</b> <span id="task-assignee"></span></p>
+      <p><b>Due Date:</b> <span id="task-date"></span></p>
+      <label>Status:
+        <select id="task-status" onchange="updateTaskStatus()">
+          <option value="Open">Open</option>
+          <option value="In Progress">In Progress</option>
+          <option value="Done">Done</option>
+        </select>
+      </label>
+    </div>
+
+    <!-- Profile/Settings Screen -->
+    <div id="profile" class="screen">
+      <button class="btn" onclick="showScreen('dashboard')">← Back</button>
+      <h2>User Profile</h2>
+      <p><b>Name:</b> Jane Doe</p>
+      <p><b>Email:</b> jane@example.com</p>
+      <button class="btn">Logout</button>
+    </div>
+  </div>
+
+  <!-- Task Creation Modal -->
+  <div id="task-modal" class="modal">
+    <div class="modal-content">
+      <h3>New Task</h3>
+      <label>Title: <input id="new-task-title"></label>
+      <label>Description: <textarea id="new-task-desc"></textarea></label>
+      <label>Assignee:
+        <select id="new-task-assignee">
+          <option>Jane</option>
+          <option>John</option>
+          <option>Alice</option>
+        </select>
+      </label>
+      <label>Due Date: <input type="date" id="new-task-date"></label>
+      <button class="btn" onclick="createTask()">Save</button>
+      <button class="btn" onclick="closeTaskModal()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    let projects = [
+      { id: 1, name: "Case A", tasks: [] },
+      { id: 2, name: "Case B", tasks: [] }
+    ];
+    let currentProject = null;
+    let currentTask = null;
+
+    function renderProjects() {
+      const list = document.getElementById('project-list');
+      list.innerHTML = '';
+      projects.forEach(p => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerText = p.name;
+        div.onclick = () => openProject(p.id);
+        list.appendChild(div);
+      });
+    }
+
+    function showProjectForm() {
+      const name = prompt("Enter project name:");
+      if(name) {
+        projects.push({id: Date.now(), name, tasks: []});
+        renderProjects();
+      }
+    }
+
+    function openProject(id) {
+      currentProject = projects.find(p => p.id === id);
+      document.getElementById('project-title').innerText = currentProject.name;
+      renderTasks();
+      showScreen('project-detail');
+    }
+
+    function renderTasks() {
+      const list = document.getElementById('task-list');
+      list.innerHTML = '';
+      currentProject.tasks.forEach((t,i) => {
+        const div = document.createElement('div');
+        div.className = 'card';
+        div.innerText = t.title + " (Due: " + t.date + ")";
+        div.onclick = () => openTask(i);
+        list.appendChild(div);
+      });
+    }
+
+    function showTaskModal() {
+      document.getElementById('task-modal').style.display = 'flex';
+    }
+    function closeTaskModal() {
+      document.getElementById('task-modal').style.display = 'none';
+    }
+    function createTask() {
+      const title = document.getElementById('new-task-title').value;
+      const desc = document.getElementById('new-task-desc').value;
+      const assignee = document.getElementById('new-task-assignee').value;
+      const date = document.getElementById('new-task-date').value;
+      if(title) {
+        currentProject.tasks.push({title, desc, assignee, date, status:"Open"});
+        renderTasks();
+        closeTaskModal();
+      }
+    }
+
+    function openTask(index) {
+      currentTask = currentProject.tasks[index];
+      document.getElementById('task-title').innerText = currentTask.title;
+      document.getElementById('task-desc').innerText = currentTask.desc;
+      document.getElementById('task-assignee').innerText = currentTask.assignee;
+      document.getElementById('task-date').innerText = currentTask.date;
+      document.getElementById('task-status').value = currentTask.status;
+      showScreen('task-detail');
+    }
+
+    function updateTaskStatus() {
+      currentTask.status = document.getElementById('task-status').value;
+    }
+
+    function goBack() { showScreen('dashboard'); }
+    function backToProject() { showScreen('project-detail'); }
+
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    renderProjects();
+  </script>
+</body>
+</html>
