@@ -1,0 +1,152 @@
+[
+  {
+    "article": "Article 12",
+    "title": "Definition of the State",
+    "keywords": ["government", "state", "authority", "public", "statutory body", "parliament", "legislature", "executive", "administration"]
+  },
+  {
+    "article": "Article 13",
+    "title": "Laws inconsistent with Fundamental Rights",
+    "keywords": ["law", "fundamental rights", "violation", "null and void", "inconsistent law", "enforceable", "unconstitutional", "rights violation", "court review"]
+  },
+  {
+    "article": "Article 14",
+    "title": "Equality before law",
+    "keywords": ["equality", "equal protection", "discrimination", "arbitrary", "equal rights", "justice", "equal treatment", "fairness", "non-arbitrary"]
+  },
+  {
+    "article": "Article 15",
+    "title": "Prohibition of discrimination",
+    "keywords": ["discrimination", "caste", "religion", "sex", "gender", "place of birth", "inequality", "segregation", "bias"]
+  },
+  {
+    "article": "Article 16",
+    "title": "Equality of opportunity in public employment",
+    "keywords": ["employment", "job", "reservation", "recruitment", "government job", "public service", "hiring", "opportunity", "quota", "promotion"]
+  },
+  {
+    "article": "Article 17",
+    "title": "Abolition of Untouchability",
+    "keywords": ["untouchability", "dalit", "scheduled caste", "caste discrimination", "social exclusion", "harijan", "manual scavenging", "caste system", "abolition"]
+  },
+  {
+    "article": "Article 18",
+    "title": "Abolition of titles",
+    "keywords": ["titles", "honour", "award", "privilege", "knighthood", "titles of nobility", "sir", "lord", "recognition", "monarchy"]
+  },
+  {
+    "article": "Article 19(1)(a)",
+    "title": "Freedom of speech and expression",
+    "keywords": ["speech", "expression", "press", "media", "journalist", "protest", "criticism", "debate", "freedom", "opinion"]
+  },
+  {
+    "article": "Article 19(1)(b)",
+    "title": "Right to assemble peacefully",
+    "keywords": ["assembly", "protest", "demonstration", "peaceful gathering", "march", "strike", "dissent", "procession", "movement"]
+  },
+  {
+    "article": "Article 19(1)(c)",
+    "title": "Right to form associations",
+    "keywords": ["association", "union", "organization", "society", "ngo", "political party", "club", "committee", "community"]
+  },
+  {
+    "article": "Article 19(1)(d)",
+    "title": "Right to move freely",
+    "keywords": ["movement", "travel", "mobility", "freedom to roam", "interstate", "movement restriction", "migration", "passport"]
+  },
+  {
+    "article": "Article 19(1)(g)",
+    "title": "Right to practice any profession",
+    "keywords": ["profession", "business", "trade", "occupation", "practice", "livelihood", "economic freedom", "self employment", "enterprise"]
+  },
+  {
+    "article": "Article 20",
+    "title": "Protection in respect of conviction for offences",
+    "keywords": ["conviction", "crime", "punishment", "ex post facto", "double jeopardy", "self incrimination", "trial", "criminal law", "offence"]
+  },
+  {
+    "article": "Article 21",
+    "title": "Protection of life and personal liberty",
+    "keywords": ["life", "liberty", "privacy", "arrest", "custody", "detention", "death penalty", "personal freedom", "due process", "fundamental right"]
+  },
+  {
+    "article": "Article 21A",
+    "title": "Right to education",
+    "keywords": ["education", "school", "student", "child", "study", "compulsory education", "literacy", "learning", "free education", "primary school"]
+  },
+  {
+    "article": "Article 22",
+    "title": "Protection in case of arrest and detention",
+    "keywords": ["arrest", "detention", "custody", "prison", "illegal detention", "preventive detention", "remand", "police custody", "habeas corpus"]
+  },
+  {
+    "article": "Article 23",
+    "title": "Prohibition of forced labour",
+    "keywords": ["forced labour", "bonded labour", "human trafficking", "slavery", "exploitation", "labour rights", "illegal labour", "servitude", "child labour"]
+  },
+  {
+    "article": "Article 24",
+    "title": "Prohibition of child labour",
+    "keywords": ["child labour", "factory work", "underage work", "illegal employment", "exploitation", "hazardous jobs", "protection of children", "workplace safety"]
+  },
+  {
+    "article": "Article 25",
+    "title": "Freedom of religion",
+    "keywords": ["religion", "worship", "faith", "belief", "temple", "mosque", "church", "rituals", "practice", "religious rights"]
+  },
+  {
+    "article": "Article 26",
+    "title": "Freedom to manage religious affairs",
+    "keywords": ["religious institution", "faith management", "religious property", "customs", "community rights", "temple management", "trust", "spiritual affairs"]
+  },
+  {
+    "article": "Article 27",
+    "title": "Freedom from taxes for religion",
+    "keywords": ["religious tax", "faith tax", "compulsory donation", "religion funding", "state religion", "government tax", "worship funding", "religious contribution"]
+  },
+  {
+    "article": "Article 28",
+    "title": "Freedom in educational institutions",
+    "keywords": ["religious education", "school", "education", "temple school", "college", "curriculum", "religion free", "secular education"]
+  },
+  {
+    "article": "Article 29",
+    "title": "Protection of interests of minorities",
+    "keywords": ["minority", "language", "culture", "heritage", "tradition", "identity", "community", "customs", "religious minority"]
+  },
+  {
+    "article": "Article 30",
+    "title": "Right of minorities to establish institutions",
+    "keywords": ["minority", "education institution", "school", "college", "rights of minorities", "cultural rights", "community", "education freedom"]
+  },
+  {
+    "article": "Article 32",
+    "title": "Right to constitutional remedies",
+    "keywords": ["writ", "remedy", "supreme court", "habeas corpus", "mandamus", "certiorari", "prohibition", "rights enforcement", "petition"]
+  },
+  {
+    "article": "Article 39A",
+    "title": "Equal justice and free legal aid",
+    "keywords": ["legal aid", "free lawyer", "justice", "equality in court", "legal help", "public defender", "fair trial", "access to justice"]
+  },
+  {
+    "article": "Article 44",
+    "title": "Uniform Civil Code",
+    "keywords": ["civil code", "marriage law", "divorce law", "inheritance", "personal law", "religion law", "equality", "uniformity"]
+  },
+  {
+    "article": "Article 51A",
+    "title": "Fundamental duties",
+    "keywords": ["duties", "citizens", "respect", "heritage", "environment", "constitution", "responsibilities", "national symbols", "sovereignty"]
+  },
+  {
+    "article": "Article 368",
+    "title": "Power to amend the Constitution",
+    "keywords": ["amendment", "constitution change", "modify law", "parliament", "constitutional amendment", "alteration", "revision", "update", "reform"]
+  },
+  {
+    "article": "Article 370",
+    "title": "Special status of Jammu & Kashmir (abrogated)",
+    "keywords": ["jammu", "kashmir", "special status", "article 370", "autonomy", "state law", "temporary provision", "abrogation", "constitutional change"]
+  }
+]
