@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import db from './services/db.js'; // Import your database connection
 import mainRoutes from './routes/index.js';
 import authRoutes from './routes/auth.js';
+import casesRoutes from './routes/cases.js';
 import isAuthenticated from './middleware/auth.js';
 
 // Load environment variables from .env file
@@ -40,8 +41,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Use the routes
-app.use('/', isAuthenticated, mainRoutes);
-app.use('/auth', authRoutes); // FIX: Changed path to '/auth' to match your EJS forms
+app.use('/auth', authRoutes); // Auth routes should be accessible without authentication
+app.use('/', isAuthenticated, mainRoutes); // Main routes require authentication
+app.use('/', isAuthenticated, casesRoutes); // Cases routes require authentication
 
 // Start the server and check database connection
 app.listen(PORT, async () => {
