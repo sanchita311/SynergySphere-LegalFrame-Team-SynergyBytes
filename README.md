@@ -19,7 +19,7 @@ LegalFrame is not just another project management tool — it is an intelligent 
 
 Case & Task Management – Create, assign, and track case-related tasks with due dates and status updates (To-Do, In Progress, Done).
 
-Smart Constitution Clause Suggestor 🧠 – Novel AI-driven module that suggests relevant constitutional clauses based on case details.
+Novelty Feature: Smart Constitution Clause Suggestor 🧠 – Novel AI-driven module that suggests relevant constitutional clauses based on case details.
 
 Team Collaboration – Project-specific threaded discussions.
 
@@ -35,6 +35,7 @@ Frontend: Bootstrap, JavaScript
 Authentication: JWT-based secure login/signup Cookies
 
 
+
 🎯 MVP Deliverables
 
 User Authentication – Register/Login with JWT security.
@@ -47,7 +48,7 @@ Threaded Communication – Collaborate within project-specific discussions.
 
 Smart Clause Suggestor (Novelty) – Suggest relevant legal/constitutional clauses.
 
-Responsive UI – Mobile-first design + desktop "command center".
+
 
 📱 Wireframes (MVP)
 🔑 Login / Signup
