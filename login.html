@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #2e0249, #570a57, #a91079);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    .container {
+      background: #fff;
+      color: #333;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      width: 380px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #570a57;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .tab-buttons button {
+      flex: 1;
+      padding: 12px;
+      border: none;
+      background: #eee;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+      border-radius: 8px;
+      margin: 0 5px;
+    }
+
+    .tab-buttons button.active {
+      background: #570a57;
+      color: #fff;
+    }
+
+    .form {
+      display: none;
+      animation: slideIn 0.5s ease;
+    }
+
+    .form.active {
+      display: block;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #570a57;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      outline: none;
+      transition: border 0.3s;
+    }
+
+    input:focus {
+      border-color: #a91079;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      background: #570a57;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn:hover {
+      background: #a91079;
+      transform: scale(1.03);
+    }
+
+    .forgot {
+      text-align: right;
+      margin-bottom: 15px;
+    }
+
+    .forgot a {
+      text-decoration: none;
+      color: #a91079;
+      font-weight: bold;
+      font-size: 0.9rem;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .link a {
+      color: #570a57;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: scale(0.9);}
+      to {opacity: 1; transform: scale(1);}
+    }
+
+    @keyframes slideIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+
+    <!-- Toggle Buttons -->
+    <div class="tab-buttons">
+      <button class="active" onclick="showForm('emailForm')">Email</button>
+      <button onclick="showForm('phoneForm')">Phone</button>
+    </div>
+
+    <!-- Email Login Form -->
+    <form id="emailForm" class="form active">
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Enter your password" required>
+
+      <div class="forgot"><a href="#">Forgot Password?</a></div>
+
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <!-- Phone Login Form -->
+    <form id="phoneForm" class="form">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="Enter your phone number" required>
+
+      <label for="otp">Password</label>
+      <input type="text" id="otp" placeholder="Enter password" required>
+      <div class="forgot"><a href="#">Forgot Password?</a></div>
+      <button type="submit" class="btn">Login</button>
+    </form>
+
+    <!-- Signup link -->
+    <div class="link">
+      <p>Don’t have an account? <a href="trial.html">Sign Up</a></p>
+    </div>
+  </div>
+
+  <script>
+    function showForm(formId) {
+      document.querySelectorAll('.form').forEach(f => f.classList.remove('active'));
+      document.querySelectorAll('.tab-buttons button').forEach(b => b.classList.remove('active'));
+      document.getElementById(formId).classList.add('active');
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
