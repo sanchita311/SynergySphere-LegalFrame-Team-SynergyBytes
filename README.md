@@ -24,29 +24,44 @@ Novelty Feature: Smart Constitution Clause Suggestor 🧠 – Novel AI-driven mo
 Team Collaboration – Project-specific threaded discussions.
 
 
-🛠️ Tech Stack
+✅ Full Tech Stack Breakdown
+🔧 Backend (Server-Side)
 
-Backend: Node.js, Express.js
+Node.js – JavaScript runtime for building the server-side logic.
 
-Database: MySQL
+Express.js (v5.x) – Fast, minimal web framework for routing and handling HTTP requests.
 
-Frontend: Bootstrap, JavaScript
+Express-Session – To manage user sessions.
 
-Authentication: JWT-based secure login/signup Cookies
+dotenv – For loading environment variables.
+
+cookie-parser – For parsing cookies (used for authentication/session management).
+
+jsonwebtoken (JWT) – For implementing token-based authentication.
+
+bcrypt – For securely hashing passwords.
+
+🗄 Database
+
+MySQL – Relational database for storing user data, session info, etc.
+
+mysql2 – Node.js client for connecting and querying MySQL databases.
+
+🎨 Frontend (Client-Side)
+
+EJS (Embedded JavaScript Templates) – Server-side templating engine for rendering HTML with dynamic data.
+
+HTML5 – Structure of the web pages.
+
+CSS3 – Styling for the frontend.
+
+Bootstrap – Responsive CSS framework to style components quickly.
+
+📦 Package & Module Management
+
+npm – Node package manager (managing dependencies like bcrypt, express, etc.).
 
 
-
-🎯 MVP Deliverables
-
-User Authentication – Register/Login with JWT security.
-
-Project & Case Management – Create projects, add team members, and assign tasks.
-
-Task Tracking – Manage task lifecycle (To-Do → In Progress → Done).
-
-Threaded Communication – Collaborate within project-specific discussions.
-
-Smart Clause Suggestor (Novelty) – Suggest relevant legal/constitutional clauses.
 
 
 
