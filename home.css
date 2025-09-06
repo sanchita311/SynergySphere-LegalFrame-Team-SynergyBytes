@@ -1,0 +1,195 @@
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #2e0249, #570a57, #a91079);
+  color: #fff;
+}
+
+
+/* Navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  background: rgba(26, 26, 26, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  z-index: 1000;
+  height: 90px;
+}
+
+nav .logo {
+  font-size: 1.7rem;
+  font-weight: bold;
+  color: #ff4fc3;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+nav ul li a {
+  position: relative;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 6px 10px;
+  transition: color 0.3s;
+}
+
+/* Underline animation */
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background: #ff4fc3;
+  transition: width 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ff4fc3;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* Highlight Login/SignUp */
+nav ul li:last-child a,
+nav ul li:nth-last-child(2) a {
+  background: #ff4fc3;
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+nav ul li:last-child a:hover,
+nav ul li:nth-last-child(2) a:hover {
+  background: #a91079;
+  transform: scale(1.05);
+}
+
+
+/* Hero */
+.hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  text-align: center;
+  padding: 60px 20px 50px;
+}
+.hero-content {
+  animation: fadeIn 1.2s ease-in-out;
+}
+.animated-logo {
+  font-size: 5rem;
+  animation: float 3s infinite ease-in-out;
+}
+.hero h2 {
+  font-size: 2.5rem;
+  margin: 10px 0 10px;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+.btn {
+  padding: 12px 25px;
+  background: #570a57;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+.btn:hover {
+  background: #a91079;
+  transform: scale(1.05);
+}
+
+/* Sections */
+.sections {
+  padding: 30px 10%;
+}
+.section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 60px;
+}
+.section img {
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  transition: transform 0.3s;
+}
+.section img:hover {
+  transform: scale(1.05);
+}
+.section-info {
+  width: 50%;
+}
+.section-info h3 {
+  color: #ff4fc3;
+}
+.section-info p {
+  line-height: 1.6;
+}
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Footer */
+footer {
+  background: #1a1a1a;
+  display: flex;
+  justify-content: space-around;
+  padding: 40px 20px;
+  flex-wrap: wrap;
+}
+.footer-col {
+  margin: 10px;
+}
+.footer-col h4 {
+  color: #ff4fc3;
+}
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+.footer-col ul li {
+  margin: 8px 0;
+}
+.footer-col ul li a {
+  text-decoration: none;
+  color: #bbb;
+  transition: color 0.3s;
+}
+.footer-col ul li a:hover {
+  color: #fff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0; transform: scale(0.9);}
+  to {opacity: 1; transform: scale(1);}
+}
+@keyframes float {
+  0%, 100% {transform: translateY(0);}
+  50% {transform: translateY(-10px);}
+}
