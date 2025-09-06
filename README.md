@@ -47,87 +47,88 @@ LegalFrame is not just another project management tool — it is an intelligent 
 🔐 Authentication Routes (Public)
 
 These routes handle user registration, login, and logout.
-
+```
 GET    /auth/signup          → Render the sign-up form
 POST   /auth/signup          → Handle user registration form submission
 GET    /auth/login           → Render the login form
 POST   /auth/login           → Handle login form submission
 GET    /auth/logout          → Log the user out and destroy session
-
+```
 
 🔒 Application Routes (Protected)
-
+```
 All the routes below require users to be logged in. They are protected by the isAuthenticated middleware.
-
+```
 📂 Main
+```
 GET    /                    → Dashboard or landing page (based on implementation)
-
+```
 🧾 Cases
+```
 GET    /cases               → List all cases
 GET    /cases/:id           → View details of a specific case
 POST   /cases               → Create a new case
 PUT    /cases/:id           → Update an existing case
 DELETE /cases/:id           → Delete a case
-
+```
 👥 Case Members
+```
 GET    /cases/:caseId/members               → Get all members in a case
 POST   /cases/:caseId/members               → Add a member to a case
 DELETE /cases/:caseId/members/:memberId     → Remove a member from a case
-
+```
 ✅ Tasks
+```
 GET    /cases/:caseId/tasks   → Get all tasks for a case
 POST   /cases/:caseId/tasks   → Create a task for a case
 PUT    /tasks/:taskId         → Update a task
 DELETE /tasks/:taskId         → Delete a task
-
+```
 🤖 AI Clause Generator
+```
 GET    /ai-clause             → Render the AI clause generator page
 POST   /ai-clause/generate    → Generate a legal clause using AI
-
+```
 🛡️ Middleware
-
+```
 isAuthenticated — Middleware that ensures the user is logged in. If not, redirects to /auth/login.
-
+```
+Directory Structure
+```
 LEGALFRAME/
 │
-├── backend/                  
+├── backend/
 │   ├── data/
 │   │   └── constitution.json
-│   │
 │   ├── database/
-│   │   └── schema.sql        
-│   │
+│   │   └── schema.sql
 │   ├── middleware/
-│   │   └── auth.js           
-│   │
-│   ├── routes/               
+│   │   └── auth.js
+│   ├── routes/
 │   │   ├── ai-clause.js
 │   │   ├── auth.js
 │   │   ├── case-members.js
 │   │   ├── cases.js
 │   │   ├── index.js
 │   │   └── tasks.js
-│   │
 │   ├── services/
-│   │   └── db.js             
-│   │
-│   ├── views/                
+│   │   └── db.js
+│   ├── views/
 │   │   ├── ai/
 │   │   │   └── clause-recommender.ejs
 │   │   ├── cases/
+│   │   │   └── case-details.ejs
 │   │   ├── index.ejs
 │   │   ├── login.ejs
 │   │   └── signup.ejs
-│   │
-│   ├── .env                 
+│   ├── .env
 │   ├── package.json
 │   ├── package-lock.json
-│   └── server.js            
-├── constitution.json         
-├── main (1).js               
+│   └── server.js
+├── constitution.json
 ├── .gitignore
-└── README.md                 
-
+└── README.md
+```
 
 ## ✅ Full Tech Stack Breakdown
 
